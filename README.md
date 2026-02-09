@@ -34,10 +34,10 @@ A starter template for building applications with Next.js, Clerk authentication,
 
 ### Database Setup
 
-For local development, you need a PostgreSQL database. You can use Docker:
+For local development, start PostgreSQL with Docker Compose:
 
 ```bash
-docker run --name postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=user -e POSTGRES_DB=mydb -p 5432:5432 -d postgres
+docker compose up -d
 ```
 
 Or use an existing PostgreSQL instance and update `DATABASE_URL` in `.env.local`.
