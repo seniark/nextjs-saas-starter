@@ -6,6 +6,19 @@ Sentry.init({
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
 
+  // Session Replay
+  replaysSessionSampleRate: 0.1, // 10% of sessions
+  replaysOnErrorSampleRate: 1.0, // 100% of sessions with errors
+
+  // Profiling
+  profilesSampleRate: 1.0,
+
+  integrations: [
+    Sentry.replayIntegration(),
+    Sentry.feedbackIntegration({ colorScheme: "system" }),
+    Sentry.browserProfilingIntegration(),
+  ],
+
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
 });
