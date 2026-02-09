@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+nixpacksConfigPath = "nixpacks.toml"
+
+[deploy]
+startCommand = "bun run start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
