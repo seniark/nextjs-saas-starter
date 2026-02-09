@@ -21,6 +21,7 @@ A starter template for building applications with Next.js, Clerk authentication,
 - **Version Control**: Git, Github
 - **Deployment**: Railway
 - **Authentication**: Clerk
+- **Error Monitoring**: Sentry
 
 ## Getting Started
 
@@ -54,6 +55,15 @@ To explore your database with Drizzle Studio:
 ```bash
 bun run db:studio
 ```
+
+### Sentry Setup
+
+1. Go to [sentry.io](https://sentry.io) and create an account
+2. Create a new Next.js project
+3. Copy your **DSN** from **Settings > Client Keys (DSN)**
+4. Replace the DSN in `sentry.client.config.ts`, `sentry.server.config.ts`, and `sentry.edge.config.ts`
+5. Update `next.config.ts` with your Sentry **org** and **project** slugs (found in **Settings > General**)
+6. For source map uploads in production, generate an auth token at **Settings > Organization Tokens** with the **`org:ci`** permission, and set it as `SENTRY_AUTH_TOKEN` in your environment
 
 ### Installation
 
