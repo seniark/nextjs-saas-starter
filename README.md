@@ -114,9 +114,3 @@ After deployment, update your Clerk application:
 
 1. Go to Clerk dashboard > **Configure > Domains**
 2. Add your Railway domain (e.g., `your-app.up.railway.app`)
-
-## Features
-
-- [x] Authentication (Clerk)
-- [ ] Interactive Dashboard
-- [x] Database Integration (PostgreSQL + Drizzle)
