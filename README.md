@@ -98,15 +98,29 @@ bun run dev
 1. Go to [railway.app](https://railway.app) and create a new project
 2. Select **Deploy from GitHub repo**
 3. Choose your repository
-4. Add a PostgreSQL database: click **New** > **Database** > **PostgreSQL**
-5. Railway will automatically set `DATABASE_URL` for your service. Add the remaining environment variables:
+4. Add a PostgreSQL database:
+   - In your project, click **New** > **Database** > **PostgreSQL**
+   - Click on the new PostgreSQL service to open its settings
+   - Go to the **Variables** tab to find the connection credentials
+   - Copy the `DATABASE_URL` variable (under **Connection URL**)
+5. Connect the database to your app service:
+   - Click on your app service (not the database)
+   - Go to the **Variables** tab
+   - Add a new variable: `DATABASE_URL` and paste the connection URL from the previous step, **or** click **Add Reference** and select `DATABASE_URL` from the PostgreSQL service to link it automatically
+6. Add the remaining environment variables:
    - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
    - `CLERK_SECRET_KEY`
    - `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in`
    - `NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up`
    - `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard`
    - `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard`
-6. Railway will automatically detect the config and deploy
+7. Railway will automatically detect the config and deploy
+8. After the first deploy, run the database migrations. Open the app service's **Settings** tab and use the **Railway CLI** or add a build command:
+   - In your service's **Settings > Deploy**, set the **Custom Start Command** to:
+     ```
+     bun run db:migrate && bun run start
+     ```
+   - This ensures migrations run before the app starts on each deploy
 
 ### Update Clerk Production Settings
 
