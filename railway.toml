@@ -1,6 +1,5 @@
 [build]
-builder = "nixpacks"
-nixpacksConfigPath = "nixpacks.toml"
+builder = "RAILPACK"
 
 [deploy]
 startCommand = "bun run db:migrate && bun run start"

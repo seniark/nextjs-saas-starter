@@ -124,7 +124,7 @@ bun run dev
    - `NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up`
    - `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard`
    - `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard`
-7. Railway will automatically detect the config and deploy
+7. Railway will automatically detect the config and deploy using Railpack (which auto-detects Bun from the lockfile and Node.js from `engines.node` in `package.json`)
 8. After the first deploy, run the database migrations. Open the app service's **Settings** tab and use the **Railway CLI** or add a build command:
    - In your service's **Settings > Deploy**, set the **Custom Start Command** to:
      ```
